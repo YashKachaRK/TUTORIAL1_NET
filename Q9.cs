@@ -12,27 +12,17 @@ namespace TUTORIAL1
         {
             Console.Write("Enter a name: ");
             string input = Console.ReadLine();
+            string result = "";
 
-            string output = ToggleCase(input);
-
-            Console.WriteLine("Output: " + output);
-        }
-
-        static string ToggleCase(string str)
-        {
-            char[] result = new char[str.Length];
-
-            for (int i = 0; i < str.Length; i++)
+            foreach (char c in input)
             {
-                if (char.IsUpper(str[i]))
-                    result[i] = char.ToLower(str[i]);
-                else if (char.IsLower(str[i]))
-                    result[i] = char.ToUpper(str[i]);
+                if (char.IsUpper(c))
+                    result += char.ToLower(c);
                 else
-                    result[i] = str[i]; // for spaces and symbols
+                    result += char.ToUpper(c);
             }
 
-            return new string(result);
+            Console.WriteLine("Output: " + result);
         }
     }
 }
